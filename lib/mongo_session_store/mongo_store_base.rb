@@ -35,6 +35,10 @@ module ActionDispatch
           get_session(env, sid)
         end
 
+        def delete_session(env, session_id, options)
+          destroy_session(env, session_id, options)
+        end
+
         def set_session(env, sid, session_data, options = {})
           id, record = get_session_record(env, sid)
           record.data = pack(session_data)
